@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+.Python
+*.sqlite3
+
+# Virtual Envs
+.venv/
+env/
+venv/
+
+# Environment Variables
+.env
+.env.*
+
+# OS & Editor
+.DS_Store
+.idea/
+.vscode/
+
+# Logs & Backups
+*.log
+*.tmp
+*.bak

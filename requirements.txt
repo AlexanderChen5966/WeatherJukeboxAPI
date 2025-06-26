@@ -1,0 +1,28 @@
+# requirements.txt
+
+# FastAPI 框架本身
+#fastapi==0.111.0 # 推薦使用較新的穩定版本
+# ASGI 伺服器，用於運行 FastAPI 應用
+#uvicorn==0.30.1 # 推薦使用較新的穩定版本
+fastapi
+uvicorn[standard]
+# 用於讀取 .env 環境變數
+python-dotenv==1.0.1
+
+# 用於模糊比對
+fuzzywuzzy==0.18.0
+# fuzzywuzzy 的 C 語言加速庫，強烈建議安裝以提高效能
+python-Levenshtein
+
+# 非同步 HTTP 客戶端，用於在 FastAPI 中進行非阻塞的外部 API 呼叫 (CWA API)
+httpx==0.27.0
+
+# Pydantic 用於資料驗證和模型定義 (FastAPI 內置依賴，但明確列出無害)
+pydantic
+
+requests
+# pathlib 是 Python 標準庫，通常不需要列出
+# datetime 也是 Python 標準庫，不需要列出
+# os 也是 Python 標準庫，不需要列出
+# json 也是 Python 標準庫，不需要列出
+# random 也是 Python 標準庫，不需要列出
