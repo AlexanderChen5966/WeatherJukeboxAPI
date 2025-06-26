@@ -2,4 +2,4 @@ name: weatherjukebox
 build:
   type: python
   install: pip install -r requirements.txt
-  start: uvicorn src.main:app --host 0.0.0.0 --port 3000
+  start: uvicorn src.main:app --host 0.0.0.0 --port ${PORT:-8080}
