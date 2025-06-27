@@ -33,15 +33,22 @@ app = FastAPI(
     lifespan=lifespan       # 掛載生命週期事件處理器
 )
 
+# 定義允許的來源
+# 這裡將 'https://alexanderchen5966.github.io' 加入到允許的來源列表中
+origins = [
+    "http://localhost:5173",                 # 開發時前端 Vue 執行的網址
+    "https://alexanderchen5966.github.io",   # GitHub Pages 部署後的網址
+    # 如果你還有其他前端來源，也可以在這裡新增
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # 開發時前端 Vue 執行的網址
-    # allow_origins=["*"],  # ⚠️ 僅限開發階段使用，生產環境建議寫明確網址
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=origins,  # 允許的來源列表
+    allow_credentials=True, # 允許跨來源請求中包含憑證 (如 cookies, HTTP authentication, client-side SSL certificates)
+    allow_methods=["*"],    # 允許所有 HTTP 方法 (GET, POST, PUT, DELETE 等)
+    allow_headers=["*"],    # 允許所有 HTTP 請求頭
 )
+
 # 1. 掛載 API 路由
 # 將 src/api/routes.py 中定義的所有路由添加到應用程式中
 app.include_router(api_router, prefix="/api", tags=["API 服務"])
